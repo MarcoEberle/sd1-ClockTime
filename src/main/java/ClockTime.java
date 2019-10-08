@@ -1,12 +1,12 @@
 import java.time.Clock;
 
 /**
- * This class represents a clock with its hours, minutes and seconds.
+ * This class represents a clock time with its hours, minutes and seconds.
  */
 public class ClockTime {
 
     /**
-     * Variable with the amount of seconds per day.
+     * Variable with the amount of seconds per day. 86400 seconds.
      */
     private final static int SECONDS_PER_DAY = 24 * 60 * 60;
 
@@ -17,14 +17,14 @@ public class ClockTime {
     private int timeInSeconds;
 
     /**
-     * Default Constructor that creates a new clock with 0 hours, 0 minutes and 0 seconds.
+     * Default Constructor that creates a new clock time with 0 hours, 0 minutes and 0 seconds.
      */
     public ClockTime() {
         this(0, 0, 0);
     }
 
     /**
-     * Constructor with only hours as argument.
+     * Constructor that creates a new clock time with hours, 0 minutes and 0 seconds.
      *
      * @param hours - How many hours are added to the clock/time.
      */
@@ -33,7 +33,7 @@ public class ClockTime {
     }
 
     /**
-     * Constructor with hours and minutes as argument.
+     * Constructor that creates a new clock time with hours, minutes and 0 seconds.
      *
      * @param hours   - How many hours are added to the clock/time.
      * @param minutes How many minutes are added to the clock/time.
@@ -43,7 +43,7 @@ public class ClockTime {
     }
 
     /**
-     * Constructor with all three arguments.
+     * Constructor that creates a clock time with hours, minutes and seconds.
      *
      * @param hours   - How many hours are added to the clock/time.
      * @param minutes - How many minutes are added to the clock/time.
@@ -52,8 +52,8 @@ public class ClockTime {
     public ClockTime(int hours, int minutes, int seconds) {
 
         /**
-         * allSeconds is hours, minutes and seconds added together as seconds. 86400 seconds.
-         * After that method normalize is called.
+         * allSeconds is hours, minutes and seconds added together as seconds.
+         * After that, method normalize is called.
          */
         int allSeconds = hours * 60 * 60 + minutes * 60 + seconds;
         normalize(allSeconds);
@@ -83,7 +83,7 @@ public class ClockTime {
      * Method to calculate the difference between two Clocks
      *
      * @param ct - Another ClockTime object
-     * @return - Returns the difference between these two clocks. If the value is negative an additional day gets added.
+     * @return - Returns the difference between these two clock times. If the value is negative, an additional day gets added.
      */
     public int diff(ClockTime ct) {
         int difference = ct.getTimeInSeconds() - this.getTimeInSeconds();
@@ -133,7 +133,7 @@ public class ClockTime {
     /**
      * Getter that returns the seconds.
      *
-     * @return - Returns the seconds on the clock.
+     * @return - Returns the seconds on this clock.
      */
     public int getSeconds() {
         return timeInSeconds % 60;
